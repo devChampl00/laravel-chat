@@ -1,66 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# **Aplikasi Chat Realtime dengan Laravel**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi chat berbasis web menggunakan **Laravel, Chatify, dan Pusher** untuk komunikasi realtime.
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## **Screenshoot**
+User 1:
+<img src="https://drive.google.com/file/d/1rgJLkwo7YbyiFdSL7VlL01Nb5TUVjte7/view?usp=drive_link">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+User 2:
+<img src="https://drive.google.com/file/d/1TXm2vTibMj9f4oMlPE1RYkEqtHtplfei/view?usp=sharing">
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## **Fitur**
+✅ Chat privat antara pengguna
+✅ Dukungan WebSocket dengan Pusher
+✅ Tampilan modern dengan Chatify
+✅ Autentikasi pengguna menggunakan Laravel Breeze
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## **1. Instalasi**
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### **1.1 Clone Repository**
+Jalankan perintah berikut untuk meng-clone repository ke komputer Anda:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+git clone https://github.com/username/repository.git
+```
 
-## Laravel Sponsors
+*(Gantilah `username/repository` dengan repo GitHub yang sesuai.)*
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Masuk ke direktori proyek:
 
-### Premium Partners
+```bash
+cd repository
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+### **1.2 Instal Dependensi Laravel**
+```bash
+composer install
+```
 
-## Contributing
+### **1.3 Buat dan Konfigurasi File `.env`**
+Salin file `.env.example` menjadi `.env`:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+```
 
-## Code of Conduct
+Generate key aplikasi Laravel:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+Edit file `.env` dan sesuaikan pengaturan database:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nama_database
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+```
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## **2. Konfigurasi Chatify dan Pusher**
+
+### **2.1 Instalasi Chatify**
+```bash
+composer require munafio/chatify
+php artisan chatify:install
+```
+
+### **2.2 Konfigurasi Pusher**
+Daftar akun di [Pusher](https://pusher.com/), buat aplikasi baru, dan salin kredensialnya ke file `.env`:
+
+```env
+PUSHER_APP_ID=your_app_id
+PUSHER_APP_KEY=your_app_key
+PUSHER_APP_SECRET=your_app_secret
+PUSHER_APP_CLUSTER=mt1
+```
+
+---
+
+## **3. Migrasi Database dan Seed Data**
+
+Jalankan perintah berikut untuk melakukan migrasi database:
+
+```bash
+php artisan migrate --seed
+```
+
+Jika ingin menghapus dan mengulang migrasi dari awal:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+---
+
+## **4. Menjalankan Aplikasi**
+
+### **4.1 Jalankan Server Laravel**
+```bash
+php artisan serve
+```
+
+Akses aplikasi di `http://127.0.0.1:8000`.
+
+### **4.2 Menjalankan Vite untuk Frontend**
+Jika menggunakan Laravel Breeze:
+
+```bash
+npm install && npm run dev
+```
+
+---
+
+## **5. Pengujian Chat**
+
+1. **Daftarkan dua pengguna baru.**
+2. **Login dengan kedua akun di dua browser berbeda.**
+3. **Kirim pesan dan pastikan pesan muncul secara realtime tanpa refresh.**
+
+Jika terjadi error pada WebSocket, pastikan kredensial Pusher sudah benar dan jalankan ulang server.
+
+---
+
+## **6. Troubleshooting**
+
+| Masalah                          | Solusi |
+|----------------------------------|--------|
+| Chat tidak realtime | Periksa konfigurasi Pusher di `.env` |
+| Error saat migrasi database | Pastikan koneksi database sudah benar di `.env` |
+| CSS/JS tidak muncul | Jalankan `npm install && npm run dev` |
+
+---
+
+## **7. Teknologi yang Digunakan**
+- Laravel
+- Chatify
+- Pusher
+- Laravel Breeze
+- MySQL
+
+---
+
+## **Lisensi**
+Proyek ini menggunakan lisensi **MIT**. Silakan gunakan dan modifikasi sesuai kebutuhan.
