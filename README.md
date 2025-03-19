@@ -5,10 +5,11 @@ Aplikasi chat berbasis web menggunakan **Laravel, Chatify, dan Pusher** untuk ko
 
 ## **Screenshoot**
 User 1:
-![tes](https://drive.google.com/file/d/1rgJLkwo7YbyiFdSL7VlL01Nb5TUVjte7/view?usp=drive_link)
+![tes](https://drive.google.com/thumbnail?id=1rgJLkwo7YbyiFdSL7VlL01Nb5TUVjte7)
 
 User 2:
-![User 2](https://drive.google.com/file/d/1TXm2vTibMj9f4oMlPE1RYkEqtHtplfei/view?usp=drive_link)
+![User 2](
+    https://drive.google.com/thumbnail?id=1TXm2vTibMj9f4oMlPE1RYkEqtHtplfei)
 
 ## **Fitur**
 ✅ Chat privat antara pengguna
